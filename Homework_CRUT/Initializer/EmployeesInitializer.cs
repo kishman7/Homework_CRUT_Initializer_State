@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Homework_CRUT.Initializer
 {
-    public class EmployeesInitializer : CreateDatabaseIfNotExists<ApplicationContext>
+    public class EmployeesInitializer : DropCreateDatabaseAlways<ApplicationContext>
     {
         protected override void Seed(ApplicationContext context)
         {
@@ -21,12 +21,26 @@ namespace Homework_CRUT.Initializer
 
             var positions = new List<Position>()
             {
-                new Position{Title = "CEO", Employees = (ICollection<Employee>)employees.FirstOrDefault(x=>x.Surname.Equals("Messi")), },
-                new Position{Title = "Manager", Employees = (ICollection<Employee>)employees.FirstOrDefault(x=>x.Surname.Equals("Ronaldo")), },
-                new Position{Title = "Manager", Employees = (ICollection<Employee>)employees.FirstOrDefault(x=>x.Surname.Equals("Messi")), },
-                new Position{Title = "Agent", Employees = (ICollection<Employee>)employees.FirstOrDefault(x=>x.Surname.Equals("Messi")), }
+                new Position{Title = "Forward", },
+                new Position{Title = "Midfielder", },
+                new Position{Title = "Forward", },
+                new Position{Title = "Defender",  }
             };
 
+            var tasks = new List<Task>()
+            {
+                new Task{Title = "Score goals", Priority = 1, },
+                new Task{Title = "Create attacks", Priority = 2, },
+                new Task{Title = "Score goals", Priority = 1, },
+                new Task{Title = "Keep the defense", Priority = 3, }
+            };
+            context.Positions.AddRange(positions);
+            context.Employees.AddRange(employees);
+            context.Tasks.AddRange(tasks);
+
+            context.SaveChanges();
+
+            base.Seed(context);
         }
     }
 }

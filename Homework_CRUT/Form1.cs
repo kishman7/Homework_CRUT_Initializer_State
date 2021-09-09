@@ -44,6 +44,7 @@ namespace Homework_CRUT
                     Console.WriteLine(item.Id + ". " + item.Name + " " + item.Surname + ", " + item.Age + " years old, "
                         + item.Salary + "$, " + item.Position.Title + ", " + item.Tasks.FirstOrDefault().Title);
                 }
+                db.SaveChanges();
             }
         }
 

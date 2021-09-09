@@ -1,3 +1,4 @@
+using Homework_CRUT.Initializer;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
@@ -10,6 +11,7 @@ namespace Homework_CRUT
         public ApplicationContext()
             : base("name=ApplicationContext")
         {
+            Database.SetInitializer(new EmployeesInitializer());
         }
 
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
