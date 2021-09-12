@@ -11,14 +11,6 @@ namespace Homework_CRUT.Initializer
     {
         protected override void Seed(ApplicationContext context)
         {
-            var employees = new List<Employee>()
-            {
-                new Employee{Name = "Lionel", Surname = "Messi", Age = 34, Salary = 25000, PositionId = 1},
-                new Employee{Name = "Cristiano", Surname = "Ronaldo", Age = 35, Salary = 21000, PositionId = 2},
-                new Employee{Name = "Mariush", Surname = "Levandowski", Age = 30, Salary = 20000, PositionId = 2},
-                new Employee{Name = "Luca", Surname = "Modrich", Age = 33, Salary = 18000, PositionId = 3}
-            };
-
             var positions = new List<Position>()
             {
                 new Position{Title = "Forward", },
@@ -34,6 +26,23 @@ namespace Homework_CRUT.Initializer
                 new Task{Title = "Score goals", Priority = 1, },
                 new Task{Title = "Keep the defense", Priority = 3, }
             };
+
+            var employees = new List<Employee>()
+            {
+                new Employee{Name = "Lionel", Surname = "Messi", Age = 34, Salary = 25000, Position = positions.FirstOrDefault(x=> x.Title == "Forward")},
+                new Employee{Name = "Cristiano", Surname = "Ronaldo", Age = 35, Salary = 21000, Position = positions.FirstOrDefault(x=> x.Title == "Midfielder")},
+                new Employee{Name = "Mariush", Surname = "Levandowski", Age = 30, Salary = 20000, Position = positions.FirstOrDefault(x=> x.Title == "Forward")},
+                new Employee{Name = "Luca", Surname = "Modrich", Age = 33, Salary = 18000, Position = positions.FirstOrDefault(x=> x.Title == "Defender")}
+            };
+
+            //заповнюємо таблицю TaskEmployees
+            employees[0].Tasks.Add(tasks.FirstOrDefault(x => x.Title == "Score goals"));
+            employees[1].Tasks.Add(tasks.FirstOrDefault(x => x.Title == "Create attacks"));
+            employees[2].Tasks.Add(tasks.FirstOrDefault(x => x.Title == "Score goals"));
+            employees[3].Tasks.Add(tasks.FirstOrDefault(x => x.Title == "Keep the defense"));
+
+
+            //додаємо ствоерені List в контекст
             context.Positions.AddRange(positions);
             context.Employees.AddRange(employees);
             context.Tasks.AddRange(tasks);
@@ -41,6 +50,7 @@ namespace Homework_CRUT.Initializer
             context.SaveChanges();
 
             base.Seed(context);
+
         }
     }
 }
