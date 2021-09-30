@@ -152,35 +152,35 @@ namespace Homework_CRUT
             this.textBox6.Location = new System.Drawing.Point(144, 149);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(184, 20);
-            this.textBox6.TabIndex = 0;
+            this.textBox6.TabIndex = 5;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(144, 123);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(184, 20);
-            this.textBox5.TabIndex = 0;
+            this.textBox5.TabIndex = 4;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(144, 97);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(184, 20);
-            this.textBox4.TabIndex = 0;
+            this.textBox4.TabIndex = 3;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(144, 71);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(184, 20);
-            this.textBox3.TabIndex = 0;
+            this.textBox3.TabIndex = 2;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(144, 45);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(184, 20);
-            this.textBox2.TabIndex = 0;
+            this.textBox2.TabIndex = 1;
             // 
             // textBox1
             // 

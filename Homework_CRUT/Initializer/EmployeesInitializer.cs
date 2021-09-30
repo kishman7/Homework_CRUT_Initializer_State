@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Homework_CRUT.Initializer
 {
-    public class EmployeesInitializer : DropCreateDatabaseAlways<ApplicationContext>
+    public class EmployeesInitializer : DropCreateDatabaseIfModelChanges<ApplicationContext>
     {
         protected override void Seed(ApplicationContext context)
         {

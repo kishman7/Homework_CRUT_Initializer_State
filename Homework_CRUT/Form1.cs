@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Homework_CRUT
@@ -22,7 +16,7 @@ namespace Homework_CRUT
             using (ApplicationContext db = new ApplicationContext())
             {
                 Employee employee = new Employee();
-                Console.WriteLine("Стан сутності employee ДО завантаження в БД: " +  (db.Entry(employee).State)); //Стан сутності
+                Console.WriteLine("Стан сутності employee ДО завантаження в БД: " + (db.Entry(employee).State)); //Стан сутності
                 employee.Name = textBox1.Text;
                 employee.Surname = textBox2.Text;
                 employee.Age = int.Parse(textBox3.Text);
@@ -45,9 +39,9 @@ namespace Homework_CRUT
                 foreach (var item in employee)
                 {
                     MessageBox.Show(item.Id + ". " + item.Name + " " + item.Surname + ", " + item.Age + " years old, "
-                        + item.Salary + "$, " + item.Position.Title + ", " + item.Tasks.FirstOrDefault().Title);
+                        + item.Salary + "$, " + item.Position.Title + ", " + item.Tasks.FirstOrDefault()?.Title);
                     Console.WriteLine(item.Id + ". " + item.Name + " " + item.Surname + ", " + item.Age + " years old, "
-                        + item.Salary + "$, " + item.Position.Title + ", " + item.Tasks.FirstOrDefault().Title);
+                        + item.Salary + "$, " + item.Position.Title + ", " + item.Tasks.FirstOrDefault()?.Title); //перевірка на null
                 }
                 db.SaveChanges();
                 //Console.WriteLine(db.Entry(emp).State);
